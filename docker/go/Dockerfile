@@ -2,7 +2,7 @@ FROM golang:latest AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY .. .
 
 RUN go build -o main .
 
