@@ -30,3 +30,4 @@ ehthumbs.db
 Thumbs.db
 
 docker/nginx/mysql/*
+node_modules

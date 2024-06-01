@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+        context: node
+    container_name: app
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./node:/usr/src/app
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    container_name: db
+    restart: always
+    command: --innodb-use-native-aio=0
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nodedb
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
