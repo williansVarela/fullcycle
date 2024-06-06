@@ -1,13 +1,14 @@
 services:
   app:
     build:
-        context: node
+        context: ./node
     container_name: app
     tty: true
     ports:
       - "3000:3000"
     volumes:
       - ./node:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       db:
         condition: service_healthy

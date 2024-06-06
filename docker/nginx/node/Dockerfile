@@ -1,6 +1,8 @@
-FROM node:15
+FROM node
 
 WORKDIR /usr/src/app
+
+RUN mkdir -p /usr/src/app/node_modules
 
 COPY . .
 
