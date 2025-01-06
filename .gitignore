@@ -31,3 +31,7 @@ Thumbs.db
 
 docker/nginx/mysql/*
 node_modules
+
+# terraform
+.terraform
+.terraform.lock.hcl
