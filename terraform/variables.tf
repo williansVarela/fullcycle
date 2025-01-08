@@ -12,3 +12,18 @@ variable "retenion_in_days" {
   description = "Retention in days for CloudWatch logs"
   type        = number
 }
+
+variable "desired_size" {
+  description = "Desired number of nodes"
+  type        = number
+}
+
+variable "max_size" {
+  description = "Maximum number of nodes"
+  type        = number
+}
+
+variable "min_size" {
+  description = "Minimum number of nodes"
+  type        = number
+}
