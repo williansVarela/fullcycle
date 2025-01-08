@@ -17,3 +17,10 @@ resource "aws_subnet" "subnets" {
     Name = "${var.prefix}-subnet-${count.index}"
   }
 }
+
+resource "aws_internet_gateway" "fullcycle-igw" {
+  vpc_id = aws_vpc.fullcycle-vpc.id
+  tags = {
+    Name = "${var.prefix}-igw"
+  }
+}
