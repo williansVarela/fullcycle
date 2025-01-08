@@ -24,3 +24,14 @@ resource "aws_internet_gateway" "fullcycle-igw" {
     Name = "${var.prefix}-igw"
   }
 }
+
+resource "aws_route_table" "fullcycle-route-table" {
+  vpc_id = aws_vpc.fullcycle-vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.fullcycle-igw.id
+  }
+  tags = {
+    Name = "${var.prefix}-route-table"
+  }
+}
