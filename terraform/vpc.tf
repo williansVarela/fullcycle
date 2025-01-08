@@ -35,3 +35,9 @@ resource "aws_route_table" "fullcycle-route-table" {
     Name = "${var.prefix}-route-table"
   }
 }
+
+resource "aws_route_table_association" "fullcycle-rtb-association" {
+  count          = 2
+  subnet_id      = aws_subnet.subnets[count.index].id
+  route_table_id = aws_route_table.fullcycle-route-table.id
+}
