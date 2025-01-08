@@ -7,7 +7,7 @@ resource "aws_vpc" "fullcycle-vpc" {
 
 data "aws_availability_zones" "available" {}
 
-resource "aws_subnet" "fullcycle-subnet-1" {
+resource "aws_subnet" "subnets" {
   count                   = 2
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   vpc_id                  = aws_vpc.fullcycle-vpc.id
