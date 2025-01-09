@@ -15,3 +15,9 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+
+module "new-vpc" {
+  source         = "./modules/vpc"
+  prefix         = var.prefix
+  vpc_cidr_block = var.vpc_cidr_block
+}

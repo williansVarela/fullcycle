@@ -27,3 +27,9 @@ variable "min_size" {
   description = "Minimum number of nodes"
   type        = number
 }
+
+variable "vpc_cidr_block" {
+  description = "CIDR for the VPC"
+  type        = string
+
+}
