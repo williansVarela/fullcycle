@@ -21,3 +21,16 @@ module "new-vpc" {
   prefix         = var.prefix
   vpc_cidr_block = var.vpc_cidr_block
 }
+
+module "new-eks" {
+  source           = "./modules/eks"
+  prefix           = var.prefix
+  cluster_name     = var.cluster_name
+  vpc_id           = module.new-vpc.vpc_id
+  subnet_ids       = module.new-vpc.subnet_ids
+  retenion_in_days = var.retenion_in_days
+  desired_size     = var.desired_size
+  max_size         = var.max_size
+  min_size         = var.min_size
+}
+
